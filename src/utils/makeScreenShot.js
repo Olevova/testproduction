@@ -1,7 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
-// function which make screenshot if we need it
+// function which make screenshot if we need it, or when test failed
+
 async function makeScreenshot(driver, photoname) {
   try {
     const screenshotsDir = path.join(__dirname, 'screenshots');
