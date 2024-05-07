@@ -1,0 +1,526 @@
+{
+  "stats": {
+    "suites": 6,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-05-06T09:52:32.628Z",
+    "end": "2024-05-06T09:52:58.770Z",
+    "duration": 26142,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "176ca219-829d-4068-a95f-ca2d607b3d9d",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c81d3819-ce95-48b5-99a1-7383187f000f",
+          "title": "Check open form for Company create",
+          "fullFile": "C:\\terenbro\\productionCJAT\\test\\checkOpenCompanyFormCreate.test.js",
+          "file": "\\test\\checkOpenCompanyFormCreate.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook in \"Check open form for Company create\"",
+              "fullTitle": "Check open form for Company create \"before each\" hook in \"Check open form for Company create\"",
+              "timedOut": false,
+              "duration": 1143,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driverChrome = await createWebdriverChrom();",
+              "err": {},
+              "uuid": "1b7d4e75-0ce9-415b-9d69-dd62e6c8db33",
+              "parentUUID": "c81d3819-ce95-48b5-99a1-7383187f000f",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after each\" hook in \"Check open form for Company create\"",
+              "fullTitle": "Check open form for Company create \"after each\" hook in \"Check open form for Company create\"",
+              "timedOut": false,
+              "duration": 79,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driverChrome.quit();",
+              "err": {},
+              "uuid": "63fade8f-3025-4a49-8553-46c45419c2ea",
+              "parentUUID": "c81d3819-ce95-48b5-99a1-7383187f000f",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Check open Company form",
+              "fullTitle": "Check open form for Company create Check open Company form",
+              "timedOut": false,
+              "duration": 3108,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// time and site or lochalhost there tests are going\nconsole.log(Date().toLocaleLowerCase(), 'date', URL);\ntry {\n  const loginPageTest = new LoginPage(driverChrome, URL);\n  const openCompanyForm = new CreateCompany(driverChrome);\n  await loginPageTest.openLoginForm();\n  await loginPageTest.fillEmailInput(email);\n  await loginPageTest.fillPasswordInput(password);\n  await loginPageTest.checkSaveForFuture();\n  await loginPageTest.login(urlForCheck);\n  await openCompanyForm.goToCreateCompanyForm();\n  await openCompanyForm.checkCreateCompanyFormOpen(companyTitle);\n} catch (error) {\n  // if something wrong make screen in utils/screenshot\n  makeScreenshot(driverChrome, 'user_menu_test');\n  throw error;\n}",
+              "err": {},
+              "uuid": "f0fa4df5-37ed-490e-84ac-5ab0015179ae",
+              "parentUUID": "c81d3819-ce95-48b5-99a1-7383187f000f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f0fa4df5-37ed-490e-84ac-5ab0015179ae"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 3108,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 0
+        },
+        {
+          "uuid": "96be523c-8459-41ee-8775-bb62a127a833",
+          "title": "Check open form for Project create",
+          "fullFile": "C:\\terenbro\\productionCJAT\\test\\checkOpenProjectFormCreate.test.js",
+          "file": "\\test\\checkOpenProjectFormCreate.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook in \"Check open form for Project create\"",
+              "fullTitle": "Check open form for Project create \"before each\" hook in \"Check open form for Project create\"",
+              "timedOut": false,
+              "duration": 1110,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driverChrome = await createWebdriverChrom();",
+              "err": {},
+              "uuid": "259a70d8-8a83-485c-a906-fae28387f42c",
+              "parentUUID": "96be523c-8459-41ee-8775-bb62a127a833",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after each\" hook in \"Check open form for Project create\"",
+              "fullTitle": "Check open form for Project create \"after each\" hook in \"Check open form for Project create\"",
+              "timedOut": false,
+              "duration": 98,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driverChrome.quit();",
+              "err": {},
+              "uuid": "566e9d60-1435-4f89-a490-2298bf923367",
+              "parentUUID": "96be523c-8459-41ee-8775-bb62a127a833",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Check open Project form",
+              "fullTitle": "Check open form for Project create Check open Project form",
+              "timedOut": false,
+              "duration": 3033,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// time and site or lochalhost there tests are going\nconsole.log(Date().toLocaleLowerCase(), 'date', URL);\ntry {\n  const loginPageTest = new LoginPage(driverChrome, URL);\n  const openProjectForm = new CreateProject(driverChrome);\n  await loginPageTest.openLoginForm();\n  await loginPageTest.fillEmailInput(email);\n  await loginPageTest.fillPasswordInput(password);\n  await loginPageTest.checkSaveForFuture();\n  await loginPageTest.login(urlForCheck);\n  await openProjectForm.goToCreateProjectForm();\n  await openProjectForm.checkCreateProjectFormOpen(projectTitle);\n} catch (error) {\n  // if something wrong make screen in utils/screenshot\n  makeScreenshot(driverChrome, 'user_menu_test');\n  throw error;\n}",
+              "err": {},
+              "uuid": "8f8abc6a-c689-4a14-8711-188f82699615",
+              "parentUUID": "96be523c-8459-41ee-8775-bb62a127a833",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8f8abc6a-c689-4a14-8711-188f82699615"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 3033,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 0
+        },
+        {
+          "uuid": "60cfd286-239f-4181-9a80-e207996cc9e1",
+          "title": "Check open form for User create",
+          "fullFile": "C:\\terenbro\\productionCJAT\\test\\checkOpenUserFormCreate.test.js",
+          "file": "\\test\\checkOpenUserFormCreate.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook in \"Check open form for User create\"",
+              "fullTitle": "Check open form for User create \"before each\" hook in \"Check open form for User create\"",
+              "timedOut": false,
+              "duration": 1134,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driverChrome = await createWebdriverChrom();",
+              "err": {},
+              "uuid": "a01848ca-ba2a-4cf8-bd94-26ba8af81449",
+              "parentUUID": "60cfd286-239f-4181-9a80-e207996cc9e1",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after each\" hook in \"Check open form for User create\"",
+              "fullTitle": "Check open form for User create \"after each\" hook in \"Check open form for User create\"",
+              "timedOut": false,
+              "duration": 152,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driverChrome.quit();",
+              "err": {},
+              "uuid": "24d6ef91-3f2e-47a5-806d-7e4b033e38a3",
+              "parentUUID": "60cfd286-239f-4181-9a80-e207996cc9e1",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Check open User form",
+              "fullTitle": "Check open form for User create Check open User form",
+              "timedOut": false,
+              "duration": 2950,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// time and site or lochalhost there tests are going\nconsole.log(Date().toLocaleLowerCase(), 'date', URL);\ntry {\n  const loginPageTest = new LoginPage(driverChrome, URL);\n  const openCompanyForm = new CreateCompany(driverChrome);\n  await loginPageTest.openLoginForm();\n  await loginPageTest.fillEmailInput(email);\n  await loginPageTest.fillPasswordInput(password);\n  await loginPageTest.checkSaveForFuture();\n  await loginPageTest.login(urlForCheck);\n  await openCompanyForm.goToCreateCompanyForm();\n  await openCompanyForm.checkCreateCompanyFormOpen(companyTitle);\n} catch (error) {\n  // if something wrong make screen in utils/screenshot\n  makeScreenshot(driverChrome, 'user_menu_test');\n  throw error;\n}",
+              "err": {},
+              "uuid": "b95dd0e3-7f4e-4937-a90d-8a25a7d0fd79",
+              "parentUUID": "60cfd286-239f-4181-9a80-e207996cc9e1",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b95dd0e3-7f4e-4937-a90d-8a25a7d0fd79"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2950,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 0
+        },
+        {
+          "uuid": "52adc14c-9fd0-40a7-a724-0834c7f8195b",
+          "title": "Check user Name in the User Menu",
+          "fullFile": "C:\\terenbro\\productionCJAT\\test\\checkUserNameInUserMenu.test.js",
+          "file": "\\test\\checkUserNameInUserMenu.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook in \"Check user Name in the User Menu\"",
+              "fullTitle": "Check user Name in the User Menu \"before each\" hook in \"Check user Name in the User Menu\"",
+              "timedOut": false,
+              "duration": 1126,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driverChrome = await createWebdriverChrom();",
+              "err": {},
+              "uuid": "c9b832c5-9dc9-4b4c-9a10-1a5b56be5642",
+              "parentUUID": "52adc14c-9fd0-40a7-a724-0834c7f8195b",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after each\" hook in \"Check user Name in the User Menu\"",
+              "fullTitle": "Check user Name in the User Menu \"after each\" hook in \"Check user Name in the User Menu\"",
+              "timedOut": false,
+              "duration": 80,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driverChrome.quit();",
+              "err": {},
+              "uuid": "df6da367-c57d-4077-b6b1-d02f69ce60a6",
+              "parentUUID": "52adc14c-9fd0-40a7-a724-0834c7f8195b",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Check user name",
+              "fullTitle": "Check user Name in the User Menu Check user name",
+              "timedOut": false,
+              "duration": 4215,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// time and site or lochalhost there tests are going\nconsole.log(Date().toLocaleLowerCase(), 'date', URL);\ntry {\n  const loginPageTest = new LoginPage(driverChrome, URL);\n  await loginPageTest.openLoginForm();\n  await loginPageTest.fillEmailInput(email);\n  await loginPageTest.fillPasswordInput(password);\n  await loginPageTest.checkSaveForFuture();\n  await loginPageTest.login(urlForCheck);\n  await loginPageTest.checkUserNameinUserForm(user)\n} catch (error) {\n  // if something wrong make screen in utils/screenshot\n  makeScreenshot(driverChrome, 'user_menu_test');\n  throw error;\n}",
+              "err": {},
+              "uuid": "769d5d37-d8a0-480c-b3a5-9fb32a027f07",
+              "parentUUID": "52adc14c-9fd0-40a7-a724-0834c7f8195b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "769d5d37-d8a0-480c-b3a5-9fb32a027f07"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4215,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 0
+        },
+        {
+          "uuid": "d9518b2d-f354-4a20-9fa9-d0c9b545043a",
+          "title": "Check forgot password page, test-case # 3 in the SU",
+          "fullFile": "C:\\terenbro\\productionCJAT\\test\\forgotPasswordPage.test.js",
+          "file": "\\test\\forgotPasswordPage.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook in \"Check forgot password page, test-case # 3 in the SU\"",
+              "fullTitle": "Check forgot password page, test-case # 3 in the SU \"before each\" hook in \"Check forgot password page, test-case # 3 in the SU\"",
+              "timedOut": false,
+              "duration": 1145,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "try {\n  driverChrome = await createWebdriverChrom();\n} catch (error) {\n  console.log(error.message);\n}",
+              "err": {},
+              "uuid": "375b6338-9b6e-46a2-98d5-b4ad8a63cb72",
+              "parentUUID": "d9518b2d-f354-4a20-9fa9-d0c9b545043a",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after each\" hook in \"Check forgot password page, test-case # 3 in the SU\"",
+              "fullTitle": "Check forgot password page, test-case # 3 in the SU \"after each\" hook in \"Check forgot password page, test-case # 3 in the SU\"",
+              "timedOut": false,
+              "duration": 48,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "if (driverChrome) {\n  await driverChrome.quit();\n}",
+              "err": {},
+              "uuid": "2de99a15-a28c-482a-a2f4-21fde06f805f",
+              "parentUUID": "d9518b2d-f354-4a20-9fa9-d0c9b545043a",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "forgot passsord page",
+              "fullTitle": "Check forgot password page, test-case # 3 in the SU forgot passsord page",
+              "timedOut": false,
+              "duration": 2208,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// time and site or lochalhost there tests are going\nconsole.log(Date().toLocaleLowerCase(), 'date');\n    const forgotPasswordTest = new ForgotPassword(driverChrome);\n    try {\n    await forgotPasswordTest.openFogotPasswordForm(startPage);\n    await forgotPasswordTest.checkForgotPasswordPage(comperaUrl, formName)\n  \n    } catch (error) {\n makeScreenshot(driverChrome, 'forgotpassword');\n throw error;\n    }",
+              "err": {},
+              "uuid": "bf9cd327-f484-46ae-a608-9239bfb550e0",
+              "parentUUID": "d9518b2d-f354-4a20-9fa9-d0c9b545043a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "bf9cd327-f484-46ae-a608-9239bfb550e0"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2208,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 0
+        },
+        {
+          "uuid": "587c4d03-3494-49b4-9547-1a011fc2aa9f",
+          "title": "Log In and Log Out Production, test-cases #1, 2",
+          "fullFile": "C:\\terenbro\\productionCJAT\\test\\logInLogOut.test.js",
+          "file": "\\test\\logInLogOut.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook in \"Log In and Log Out Production, test-cases #1, 2\"",
+              "fullTitle": "Log In and Log Out Production, test-cases #1, 2 \"before each\" hook in \"Log In and Log Out Production, test-cases #1, 2\"",
+              "timedOut": false,
+              "duration": 1192,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driverChrome = await createWebdriverChrom();",
+              "err": {},
+              "uuid": "c9ab752f-7ad1-441a-b212-f0aa14547ea4",
+              "parentUUID": "587c4d03-3494-49b4-9547-1a011fc2aa9f",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after each\" hook in \"Log In and Log Out Production, test-cases #1, 2\"",
+              "fullTitle": "Log In and Log Out Production, test-cases #1, 2 \"after each\" hook in \"Log In and Log Out Production, test-cases #1, 2\"",
+              "timedOut": false,
+              "duration": 69,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driverChrome.quit();",
+              "err": {},
+              "uuid": "e9e1d56e-15bc-423a-8c2a-506bd00c0349",
+              "parentUUID": "587c4d03-3494-49b4-9547-1a011fc2aa9f",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Log In and Log Out the Coloradojob production",
+              "fullTitle": "Log In and Log Out Production, test-cases #1, 2 Log In and Log Out the Coloradojob production",
+              "timedOut": false,
+              "duration": 3235,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// time and site or lochalhost there tests are going\nconsole.log(Date().toLocaleLowerCase(), 'date', URL);\ntry {\n  const loginPageTest = new LoginPage(driverChrome, URL);\n  const logOutUserTest = new LogOut(driverChrome);\n  await loginPageTest.openLoginForm();\n  await loginPageTest.fillEmailInput(email);\n  await loginPageTest.fillPasswordInput(password);\n  await loginPageTest.checkSaveForFuture();\n  await loginPageTest.login(urlForCheck);\n  await logOutUserTest.findUserMenu();\n  await logOutUserTest.userLogOut(URL);\n  console.log('test passed');\n} catch (error) {\n  // if something wrong make screen in utils/screenshot\n  makeScreenshot(driverChrome, 'auth_test');\n  throw error;\n}",
+              "err": {},
+              "uuid": "ef7c9e32-cb0a-4a3a-8963-e9639fecc402",
+              "parentUUID": "587c4d03-3494-49b4-9547-1a011fc2aa9f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ef7c9e32-cb0a-4a3a-8963-e9639fecc402"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 3235,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 0
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 0
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.4.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "reports",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "colorjob",
+        "reportFilename": "reports"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
