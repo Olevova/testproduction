@@ -6,10 +6,10 @@ const makeScreenshot = require('../src/utils/makeScreenShot');
 
 describe('Log In and Log Out Production, test-cases #1, 2', async () => {
   // add varibalses for testing //
-  const URL = 'https://app.colorjob.com/login';
-  const urlForCheck =
-    'https://app.colorjob.com/system/dashboard';
-  // const URL = 'http://localhost:4300/login';
+  // const URL = 'https://app.colorjob.com/login';
+  // const urlForCheck =
+  //   'https://app.colorjob.com/system/dashboard';
+  const URL = 'http://localhost:4300/login';
   // const urlForCheck = "http://localhost:4300/system/dashboard"
   const email = 'superadmin@gmail.com';
   const password = 'colorjob';

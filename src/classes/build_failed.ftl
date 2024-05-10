@@ -16,7 +16,8 @@ ${var.buildCompilationErrors}${var.buildFailedTestsErrors}${var.buildChanges}
 <#global bodyHtml>
 <div>
   <div>
-    Build <b>${project.fullName?html} :: ${buildType.name?html}</b> <a href='${link.buildResultsLink}'><@common.short_build_info build/></a> successful
+    <p>Best team Colorjob</p>
+    Build <b>${project.fullName?html} :: ${buildType.name?html}</b> <a href='${link.buildResultsLink}'><@common.short_build_info build/></a> failed
     ${var.buildShortStatusDescription}
   </div>
   <div><@resp.buildTypeInvestigation buildType true/></div>
