@@ -5,7 +5,6 @@ const { describe } = require('mocha');
 const makeScreenshot = require('../src/utils/makeScreenShot');
 
 describe('Log In and Log Out Production, test-cases #1, 2', async () => {
-  // add varibalses for testing //
   // const URL = 'https://app.colorjob.com/login';
   // const urlForCheck =
   //   'https://app.colorjob.com/system/dashboard';
