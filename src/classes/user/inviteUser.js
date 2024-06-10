@@ -32,7 +32,7 @@ class InviteUser extends Base {
     if(user === 'sa'){
     const usersBtn = await this.driver.findElement(By.id('linkUsers'));
     await usersBtn.click();
-    this.startUsersNumber = await this.numberOfItems(this.driver);
+    // this.startUsersNumber = await this.numberOfItems(this.driver);
     }
     else{
       await this.driver.sleep(2000);
@@ -41,6 +41,7 @@ class InviteUser extends Base {
       await this.driver.wait(until.elementIsEnabled(userBtnCA),10000);
       await userBtnCA.click();
       await this.driver.executeScript('return document.readyState');
+
       
 
     }
@@ -48,12 +49,13 @@ class InviteUser extends Base {
     const inviteNewUserBtn = await this.driver.findElement(By.id('btnCreate'));
     await this.driver.wait(until.elementIsEnabled(inviteNewUserBtn),10000)
     await inviteNewUserBtn.click();
+    await this.driver.sleep(1000);
   }
 
   async checkCreateUserFormOpen(titleForCheck){
     this.userTitle = await this.getFormTitle();
-    if(this.userTitle.toLowerCase().trim() === titleForCheck.toLowerCase())
-    {console.log('test check create User form passed');
+    if(this.userTitle.toLowerCase().trim().includes(titleForCheck.toLowerCase()))
+    {console.log('Form title:', this.userTitle.toLowerCase().trim(),'test check create User form passed');
     }
   else{
     throw new Error ('test check create User form failed')

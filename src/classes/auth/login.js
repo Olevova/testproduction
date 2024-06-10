@@ -82,6 +82,25 @@ class LoginPage extends Base{
 
   }
 
+  async loginWithoutCheckingURL() {
+    const enterButton = this.driver.findElement(By.id('btn-submit'));
+    const isEnabled = await enterButton.isEnabled();
+
+    if (isEnabled) {
+      await enterButton.click();
+      await this.driver.wait(until.urlMatches(/^https:\/\/app\.colorjob\.com\/system/), 10000);
+    } else {
+      const errorElement = await this.driver.findElement(
+        By.className('error-message')
+      );
+      await this.driver.wait(
+        until.elementsLocated(By.className('error-message')),
+        3000
+      );
+      throw new Error(await errorElement.getText());
+    }
+  }
+
 }
 
 module.exports = LoginPage;

@@ -3,17 +3,10 @@ const CreateCompany = require('../src/classes/company/companyCreate');
 const { createWebdriverChrom } = require('../src/utils/webdriver');
 const { describe } = require('mocha');
 const makeScreenshot = require('../src/utils/makeScreenShot');
+const config = require('../src/utils/config');
 
 describe('Check open form for Company create', async () => {
   // add varibalses for testing
-  const URL = 'https://app.colorjob.com/login';
-  const urlForCheck =
-    'https://app.colorjob.com/system/dashboard';
-  // const URL = 'http://localhost:4300/login';
-  // const urlForCheck = "http://localhost:4300/system/dashboard"
-  const email = 'superadmin@gmail.com';
-  const password = 'colorjob';
-  const companyTitle = "Create Company";
   let driverChrome = null;
 
   beforeEach(async () => {
@@ -26,18 +19,18 @@ describe('Check open form for Company create', async () => {
 
   it('Check open Company form', async () => {
     // time and site or lochalhost there tests are going
-    console.log(Date().toLocaleLowerCase(), 'date', URL);
+    console.log(Date().toLocaleLowerCase(), 'date', config.urlLoginPage);
     try {
-      const loginPageTest = new LoginPage(driverChrome, URL);
+      const loginPageTest = new LoginPage(driverChrome, config.urlLoginPage);
       const openCompanyForm = new CreateCompany(driverChrome);
 
       await loginPageTest.openLoginForm();
-      await loginPageTest.fillEmailInput(email);
-      await loginPageTest.fillPasswordInput(password);
+      await loginPageTest.fillEmailInput(config.email);
+      await loginPageTest.fillPasswordInput(config.password);
       await loginPageTest.checkSaveForFuture();
-      await loginPageTest.login(urlForCheck);
+      await loginPageTest.login(config.urlHomePageForCheck);
       await openCompanyForm.goToCreateCompanyForm();
-      await openCompanyForm.checkCreateCompanyFormOpen(companyTitle);
+      await openCompanyForm.checkCreateCompanyFormOpen(config.companyFormTitle);
     } catch (error) {
       // if something wrong make screen in utils/screenshot
       makeScreenshot(driverChrome, 'user_menu_test');

@@ -3,6 +3,7 @@ const CreateProject = require('../src/classes/project/createProject');
 const { createWebdriverChrom } = require('../src/utils/webdriver');
 const { describe } = require('mocha');
 const makeScreenshot = require('../src/utils/makeScreenShot');
+const config = require('../src/utils/config');
 
 describe('Check open form for Project create', async () => {
   // add varibalses for testing
@@ -13,6 +14,10 @@ describe('Check open form for Project create', async () => {
   // const urlForCheck = "http://localhost:4300/system/dashboard"
   const email = 'superadmin@gmail.com';
   const password = 'colorjob';
+
+  const emailCA = 'volodymyr_o@terenbro.com';
+  const passwordCA ='222222';
+
   const projectTitle = "Create Project";
   let driverChrome = null;
 
@@ -24,24 +29,46 @@ describe('Check open form for Project create', async () => {
     await driverChrome.quit();
   });
 
-  it('Check open Project form', async () => {
+  it('Check open Project form for the SU', async () => {
     // time and site or lochalhost there tests are going
-    console.log(Date().toLocaleLowerCase(), 'date', URL);
+    console.log(Date().toLocaleLowerCase(), 'date', config.urlLoginPage);
     try {
-      const loginPageTest = new LoginPage(driverChrome, URL);
+      const loginPageTest = new LoginPage(driverChrome, config.urlLoginPage);
       const openProjectForm = new CreateProject(driverChrome);
 
       await loginPageTest.openLoginForm();
-      await loginPageTest.fillEmailInput(email);
-      await loginPageTest.fillPasswordInput(password);
+      await loginPageTest.fillEmailInput(config.email);
+      await loginPageTest.fillPasswordInput(config.password);
       await loginPageTest.checkSaveForFuture();
-      await loginPageTest.login(urlForCheck);
+      await loginPageTest.login(config.urlHomePageForCheck);
       await openProjectForm.goToCreateProjectForm();
-      await openProjectForm.checkCreateProjectFormOpen(projectTitle);
+      await openProjectForm.checkCreateProjectFormOpen(config.projectFormTitle);
     } catch (error) {
       // if something wrong make screen in utils/screenshot
       makeScreenshot(driverChrome, 'user_menu_test');
       throw error;
     }
   });
+
+  it('Check open Project form for the CA', async () => {
+    // time and site or lochalhost there tests are going
+    console.log(Date().toLocaleLowerCase(), 'date', config.urlLoginPage);
+    try {
+      const loginPageTest = new LoginPage(driverChrome, config.urlLoginPage);
+      const openProjectForm = new CreateProject(driverChrome);
+
+      await loginPageTest.openLoginForm();
+      await loginPageTest.fillEmailInput(config.emailCA);
+      await loginPageTest.fillPasswordInput(config.passwordCA);
+      await loginPageTest.checkSaveForFuture();
+      await loginPageTest.loginWithoutCheckingURL();
+      await openProjectForm.goToCreateProjectForm("ca");
+      await openProjectForm.checkCreateProjectFormOpen(config.projectFormTitle);
+    } catch (error) {
+      // if something wrong make screen in utils/screenshot
+      makeScreenshot(driverChrome, 'user_menu_test');
+      throw error;
+    }
+  });
+
 });

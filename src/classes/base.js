@@ -25,6 +25,7 @@ class Base {
       until.elementLocated(By.css('.backdrop[show="true"]')),
       10000
     );
+    
     // const createForm = this.driver.findElement(By.className('modal'));
     const formElement = await this.driver.findElement(
       By.css('form.form-invite')
