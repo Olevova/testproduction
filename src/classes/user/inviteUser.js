@@ -49,10 +49,19 @@ class InviteUser extends Base {
     const inviteNewUserBtn = await this.driver.findElement(By.id('btnCreate'));
     await this.driver.wait(until.elementIsEnabled(inviteNewUserBtn),10000)
     await inviteNewUserBtn.click();
-    await this.driver.sleep(1000);
+    const startTime =performance.now();;
+    try {
+        await this.driver.wait(until.elementLocated(By.css('app-invite-user-form .form-invite')), 10000);
+        console.log(`Form located after ${performance.now() - startTime} ms`);
+    } catch (error) {
+        console.log(`Form not located within 10000 ms, waited ${performance.now() - startTime} ms`);
+        throw error;
+    }
+    // await this.driver.wait(until.elementLocated(By.css('app-invite-user-form .form-invite')),10000);
+    await this.driver.sleep(500);
   }
 
-  async checkCreateUserFormOpen(titleForCheck){
+    async checkCreateUserFormOpen(titleForCheck){
     this.userTitle = await this.getFormTitle();
     if(this.userTitle.toLowerCase().trim().includes(titleForCheck.toLowerCase()))
     {console.log('Form title:', this.userTitle.toLowerCase().trim(),'test check create User form passed');

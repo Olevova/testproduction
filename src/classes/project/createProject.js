@@ -18,6 +18,8 @@ class CreateProject extends Base {
       
     if(user !== 'sa'){
       await this.driver.sleep(1000);
+      const projectBtnUsers = await this.driver.findElement(By.id('linkProjectsAdminOrEmployee'));
+      await projectBtnUsers.click();
     }
     const creatProject = await this.driver.findElement(By.id('btnCreate'));
     await creatProject.click();
