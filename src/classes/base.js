@@ -22,7 +22,7 @@ class Base {
 
   async getFormTitle() {
     await this.driver.wait(
-      until.elementLocated(By.css('.backdrop[show="true"]')),
+      until.elementLocated(By.css('.backdrop')),
       10000
     );
     

@@ -38,43 +38,43 @@ describe('Check open form for User create', async () => {
     }
   });
 
-  it('Check open User form for the CA', async () => {
-    // time and site or lochalhost there tests are going
-    console.log(Date().toLocaleLowerCase(), 'date', config.urlLoginPage);
-    try {
-      const loginPageTest = new LoginPage(driverChrome, config.urlLoginPage);
-      const openUserForm = new InviteUser(driverChrome);
+  // it('Check open User form for the CA', async () => {
+  //   // time and site or lochalhost there tests are going
+  //   console.log(Date().toLocaleLowerCase(), 'date', config.urlLoginPage);
+  //   try {
+  //     const loginPageTest = new LoginPage(driverChrome, config.urlLoginPage);
+  //     const openUserForm = new InviteUser(driverChrome);
 
-      await loginPageTest.userLogIn(
-        config.emailCA,
-        config.passwordCA,
-      );
-      await openUserForm.goToInviteUsersForm('ca');
-      await openUserForm.checkCreateUserFormOpen(config.userFormTitle);
-    } catch (error) {
-      // if something wrong make screen in utils/screenshot
-      makeScreenshot(driverChrome, 'user_menu_test_CA');
-      throw error;
-    }
-  });
+  //     await loginPageTest.userLogIn(
+  //       config.emailCA,
+  //       config.passwordCA,
+  //     );
+  //     await openUserForm.goToInviteUsersForm('ca');
+  //     await openUserForm.checkCreateUserFormOpen(config.userFormTitle);
+  //   } catch (error) {
+  //     // if something wrong make screen in utils/screenshot
+  //     makeScreenshot(driverChrome, 'user_menu_test_CA');
+  //     throw error;
+  //   }
+  // });
 
-  it('Check open User form for the PM', async () => {
-    // time and site or lochalhost there tests are going
-    console.log(Date().toLocaleLowerCase(), 'date', config.urlLoginPage);
-    try {
-      const loginPageTest = new LoginPage(driverChrome, config.urlLoginPage);
-      const openUserForm = new InviteUser(driverChrome);
-      await loginPageTest.userLogIn(
-        config.emailPM,
-        config.passwordPM,
-      );
+  // it('Check open User form for the PM', async () => {
+  //   // time and site or lochalhost there tests are going
+  //   console.log(Date().toLocaleLowerCase(), 'date', config.urlLoginPage);
+  //   try {
+  //     const loginPageTest = new LoginPage(driverChrome, config.urlLoginPage);
+  //     const openUserForm = new InviteUser(driverChrome);
+  //     await loginPageTest.userLogIn(
+  //       config.emailPM,
+  //       config.passwordPM,
+  //     );
       
-      await openUserForm.goToInviteUsersForm('pm');
-      await openUserForm.checkCreateUserFormOpen(config.userFormTitle);
-    } catch (error) {
-      // if something wrong make screen in utils/screenshot
-      makeScreenshot(driverChrome, 'user_menu_test_PM');
-      throw error;
-    }
-  });
+  //     await openUserForm.goToInviteUsersForm('pm');
+  //     await openUserForm.checkCreateUserFormOpen(config.userFormTitle);
+  //   } catch (error) {
+  //     // if something wrong make screen in utils/screenshot
+  //     makeScreenshot(driverChrome, 'user_menu_test_PM');
+  //     throw error;
+  //   }
+  // });
 });

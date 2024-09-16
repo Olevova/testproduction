@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2024-09-16T10:30:23.606Z",
-    "end": "2024-09-16T10:30:26.714Z",
-    "duration": 3108,
+    "start": "2024-09-16T12:12:11.732Z",
+    "end": "2024-09-16T12:12:14.970Z",
+    "duration": 3238,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "f46d0a0c-0d97-4d04-bde7-5de1d2d43e53",
+      "uuid": "c9ee5e8b-f78a-433d-961e-dc1707746ea4",
       "title": "",
       "fullFile": "C:\\terenbro\\productionCJAT\\test\\checkOpenCompanyFormCreate.test.js",
       "file": "\\test\\checkOpenCompanyFormCreate.test.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "db2f283f-6e01-446c-b82b-9f1d8a7930b2",
+          "uuid": "47dd0f51-ac45-477a-9169-313614901f1c",
           "title": "Check open form for Company create",
           "fullFile": "C:\\terenbro\\productionCJAT\\test\\checkOpenCompanyFormCreate.test.js",
           "file": "\\test\\checkOpenCompanyFormCreate.test.js",
@@ -36,7 +36,7 @@
               "title": "\"before each\" hook in \"Check open form for Company create\"",
               "fullTitle": "Check open form for Company create \"before each\" hook in \"Check open form for Company create\"",
               "timedOut": false,
-              "duration": 1189,
+              "duration": 1209,
               "state": null,
               "speed": null,
               "pass": false,
@@ -45,8 +45,8 @@
               "context": null,
               "code": "driverChrome = await createWebdriverChrom();",
               "err": {},
-              "uuid": "24192b7b-6bce-45ea-a953-9e8dee32bfb0",
-              "parentUUID": "db2f283f-6e01-446c-b82b-9f1d8a7930b2",
+              "uuid": "0fee35d2-0377-45d9-a6b2-69382fed80ec",
+              "parentUUID": "47dd0f51-ac45-477a-9169-313614901f1c",
               "isHook": true,
               "skipped": false
             }
@@ -56,7 +56,7 @@
               "title": "\"after each\" hook in \"Check open form for Company create\"",
               "fullTitle": "Check open form for Company create \"after each\" hook in \"Check open form for Company create\"",
               "timedOut": false,
-              "duration": 87,
+              "duration": 111,
               "state": null,
               "speed": null,
               "pass": false,
@@ -65,8 +65,8 @@
               "context": null,
               "code": "await driverChrome.quit();",
               "err": {},
-              "uuid": "ed733f69-97cc-46a8-8389-d7d5fe8ef907",
-              "parentUUID": "db2f283f-6e01-446c-b82b-9f1d8a7930b2",
+              "uuid": "d6d36750-648d-4336-84be-e447dae076b0",
+              "parentUUID": "47dd0f51-ac45-477a-9169-313614901f1c",
               "isHook": true,
               "skipped": false
             }
@@ -76,29 +76,29 @@
               "title": "Check open Company form",
               "fullTitle": "Check open form for Company create Check open Company form",
               "timedOut": false,
-              "duration": 1826,
+              "duration": 1912,
               "state": "passed",
               "speed": "slow",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "// time and site or lochalhost there tests are going\nconsole.log(Date().toLocaleLowerCase(), 'date', config.urlLoginPage);\ntry {\n  const loginPageTest = new LoginPage(driverChrome, config.urlLoginPage);\n  const openCompanyForm = new CreateCompany(driverChrome);\n  await loginPageTest.userLogIn(\n    config.email,\n    config.password,\n    config.urlHomePageForCheck\n  );\n  // await loginPageTest.openLoginForm();\n  // await loginPageTest.fillEmailInput(config.email);\n  // await loginPageTest.fillPasswordInput(config.password);\n  // await loginPageTest.checkSaveForFuture();\n  // await loginPageTest.login(config.urlHomePageForCheck);\n  await openCompanyForm.goToCreateCompanyForm();\n  await openCompanyForm.checkCreateCompanyFormOpen(config.companyFormTitle);\n} catch (error) {\n  // if something wrong make screen in utils/screenshot\n  makeScreenshot(driverChrome, 'user_menu_test');\n  throw error;\n}",
+              "code": "// time and site or lochalhost there tests are going\nconsole.log(Date().toLocaleLowerCase(), 'date', config.urlLoginPage);\ntry {\n  const loginPageTest = new LoginPage(driverChrome, config.urlLoginPage);\n  const openCompanyForm = new CreateCompany(driverChrome);\n  await loginPageTest.userLogIn(\n    config.email,\n    config.password,\n    config.urlHomePageForCheck\n  );\n  await openCompanyForm.goToCreateCompanyForm();\n  await openCompanyForm.checkCreateCompanyFormOpen(config.companyFormTitle);\n} catch (error) {\n  // if something wrong make screen in utils/screenshot\n  makeScreenshot(driverChrome, 'user_menu_test');\n  throw error;\n}",
               "err": {},
-              "uuid": "04ad65e1-7da8-4597-bc8c-1f04c25a91f4",
-              "parentUUID": "db2f283f-6e01-446c-b82b-9f1d8a7930b2",
+              "uuid": "eb2978c2-4596-4bc8-9072-a13056a107bc",
+              "parentUUID": "47dd0f51-ac45-477a-9169-313614901f1c",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "04ad65e1-7da8-4597-bc8c-1f04c25a91f4"
+            "eb2978c2-4596-4bc8-9072-a13056a107bc"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 1826,
+          "duration": 1912,
           "root": false,
           "rootEmpty": false,
           "_timeout": 0
