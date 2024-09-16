@@ -9,16 +9,7 @@ describe('Check user Name in the User Menu', async () => {
   const URL = 'https://app.colorjob.com/login';
   const urlForCheck =
     'https://app.colorjob.com/system/dashboard';
-  // const URL = 'http://localhost:4300/login';
-  // const urlForCheck = "http://localhost:4300/system/dashboard"
-  const email = 'superadmin@gmail.com';
-  const password = 'colorjob';
-  const emailCA = 'volodymyr_o@terenbro.com';
-  const passwordCA ='222222';
-  const emailPM = 'olevova1983@gmail.com';
-  const passwordPM ='222222';
-  const emailSU = 'olevova@ukr.net';
-  const passwordSU ='222222';
+ 
 
   const userSA = "Ben";
   const userCA = 'Vova CA';
@@ -39,11 +30,12 @@ describe('Check user Name in the User Menu', async () => {
     console.log(Date().toLocaleLowerCase(), 'date', config.urlLoginPage);
     try {
       const loginPageTest = new LoginPage(driverChrome, config.urlLoginPage);
-      await loginPageTest.openLoginForm();
-      await loginPageTest.fillEmailInput(config.email);
-      await loginPageTest.fillPasswordInput(config.password);
-      await loginPageTest.checkSaveForFuture();
-      await loginPageTest.login(config.urlHomePageForCheck);
+      await loginPageTest.userLogIn(
+        config.email,
+        config.password,
+        config.urlHomePageForCheck
+      );
+     
       await loginPageTest.checkUserNameinUserForm(userSA)
     } catch (error) {
       // if something wrong make screen in utils/screenshot
@@ -57,11 +49,10 @@ describe('Check user Name in the User Menu', async () => {
     console.log(Date().toLocaleLowerCase(), 'date', config.urlLoginPage);
     try {
       const loginPageTest = new LoginPage(driverChrome, config.urlLoginPage);
-      await loginPageTest.openLoginForm();
-      await loginPageTest.fillEmailInput(config.emailCA);
-      await loginPageTest.fillPasswordInput(config.passwordCA);
-      await loginPageTest.checkSaveForFuture();
-      await loginPageTest.loginWithoutCheckingURL();
+      await loginPageTest.userLogIn(
+        config.emailCA,
+        config.passwordCA,  
+      );
       await loginPageTest.checkUserNameinUserForm(userCA)
     } catch (error) {
       // if something wrong make screen in utils/screenshot
@@ -75,11 +66,10 @@ describe('Check user Name in the User Menu', async () => {
     console.log(Date().toLocaleLowerCase(), 'date', config.urlLoginPage);
     try {
       const loginPageTest = new LoginPage(driverChrome, config.urlLoginPage);
-      await loginPageTest.openLoginForm();
-      await loginPageTest.fillEmailInput(config.emailPM);
-      await loginPageTest.fillPasswordInput(config.passwordPM);
-      await loginPageTest.checkSaveForFuture();
-      await loginPageTest.loginWithoutCheckingURL();
+      await loginPageTest.userLogIn(
+        config.emailPM,
+        config.passwordPM,  
+      );
       await loginPageTest.checkUserNameinUserForm(userPM)
     } catch (error) {
       // if something wrong make screen in utils/screenshot
@@ -93,11 +83,11 @@ describe('Check user Name in the User Menu', async () => {
     console.log(Date().toLocaleLowerCase(), 'date', config.urlLoginPage);
     try {
       const loginPageTest = new LoginPage(driverChrome, config.urlLoginPage);
-      await loginPageTest.openLoginForm();
-      await loginPageTest.fillEmailInput(config.emailSU);
-      await loginPageTest.fillPasswordInput(config.passwordSU);
-      await loginPageTest.checkSaveForFuture();
-      await loginPageTest.loginWithoutCheckingURL();
+      await loginPageTest.userLogIn(
+        config.emailSU,
+        config.passwordSU,
+        
+      );
       await loginPageTest.checkUserNameinUserForm(userSU)
     } catch (error) {
       // if something wrong make screen in utils/screenshot

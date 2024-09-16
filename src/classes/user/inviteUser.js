@@ -52,9 +52,9 @@ class InviteUser extends Base {
     const startTime =performance.now();;
     try {
         await this.driver.wait(until.elementLocated(By.css('app-invite-user-form .form-invite')), 10000);
-        console.log(`Form located after ${performance.now() - startTime} ms`);
+        console.log(`Invite Form located after ${performance.now() - startTime} ms`);
     } catch (error) {
-        console.log(`Form not located within 10000 ms, waited ${performance.now() - startTime} ms`);
+        console.log(`Invite Form not located within 10000 ms, waited ${performance.now() - startTime} ms`);
         throw error;
     }
     // await this.driver.wait(until.elementLocated(By.css('app-invite-user-form .form-invite')),10000);

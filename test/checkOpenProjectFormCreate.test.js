@@ -7,18 +7,6 @@ const config = require('../src/utils/config');
 
 describe('Check open form for Project create', async () => {
   // add varibalses for testing
-  const URL = 'https://app.colorjob.com/login';
-  const urlForCheck =
-    'https://app.colorjob.com/system/dashboard';
-  // const URL = 'http://localhost:4300/login';
-  // const urlForCheck = "http://localhost:4300/system/dashboard"
-  const email = 'superadmin@gmail.com';
-  const password = 'colorjob';
-
-  const emailCA = 'volodymyr_o@terenbro.com';
-  const passwordCA ='222222';
-
-  const projectTitle = "Create Project";
   let driverChrome = null;
 
   beforeEach(async () => {
@@ -35,12 +23,11 @@ describe('Check open form for Project create', async () => {
     try {
       const loginPageTest = new LoginPage(driverChrome, config.urlLoginPage);
       const openProjectForm = new CreateProject(driverChrome);
-
-      await loginPageTest.openLoginForm();
-      await loginPageTest.fillEmailInput(config.email);
-      await loginPageTest.fillPasswordInput(config.password);
-      await loginPageTest.checkSaveForFuture();
-      await loginPageTest.login(config.urlHomePageForCheck);
+      await loginPageTest.userLogIn(
+        config.email,
+        config.password,
+        config.urlHomePageForCheck
+      );
       await openProjectForm.goToCreateProjectForm();
       await openProjectForm.checkCreateProjectFormOpen(config.projectFormTitle);
     } catch (error) {
@@ -56,12 +43,10 @@ describe('Check open form for Project create', async () => {
     try {
       const loginPageTest = new LoginPage(driverChrome, config.urlLoginPage);
       const openProjectForm = new CreateProject(driverChrome);
-
-      await loginPageTest.openLoginForm();
-      await loginPageTest.fillEmailInput(config.emailCA);
-      await loginPageTest.fillPasswordInput(config.passwordCA);
-      await loginPageTest.checkSaveForFuture();
-      await loginPageTest.loginWithoutCheckingURL();
+      await loginPageTest.userLogIn(
+        config.emailCA,
+        config.passwordCA,
+      );
       await openProjectForm.goToCreateProjectForm("ca");
       await openProjectForm.checkCreateProjectFormOpen(config.projectFormTitle);
     } catch (error) {

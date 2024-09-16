@@ -59,6 +59,7 @@ class LoginPage extends Base{
     }
   }
 
+
   async checkUserNameinUserForm (UserName){
     await this.driver.executeScript('return document.readyState');
     const profileMenu = this.driver.findElement(By.id('profileUserBtn'));
@@ -99,6 +100,25 @@ class LoginPage extends Base{
       );
       throw new Error(await errorElement.getText());
     }
+  }
+
+  async userLogIn(email, password, urlForCheck){
+    try {
+    await this.openLoginForm();
+    await this.fillEmailInput(email);
+    await this.fillPasswordInput(password);
+    await this.checkSaveForFuture();
+      if(urlForCheck){
+        await this.login(urlForCheck)
+      }
+      else{
+        await this.loginWithoutCheckingURL();
+      }
+
+    } catch (error) {
+      throw new Error (error);
+    }
+   
   }
 
 }

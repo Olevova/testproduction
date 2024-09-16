@@ -7,7 +7,7 @@
   },
   "scripts": {
     "test": "mocha --no-timeouts --reporter mochawesome --require mochawesome/register --reporter-options reportDir=colorjob,reportFilename=reports",
-    "onetest": "mocha --no-timeouts --reporter mochawesome --require mochawesome/register --reporter-options reportDir=colorjob,reportFilename=reports test/checkOpenUserFormCreate.test.js",
+    "onetest": "mocha --no-timeouts --reporter mochawesome --require mochawesome/register --reporter-options reportDir=colorjob,reportFilename=reports test/checkOpenCompanyFormCreate.test.js",
     "testp": "mocha --no-timeouts --parallel"
   },
   "author": "",

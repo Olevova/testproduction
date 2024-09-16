@@ -23,11 +23,13 @@ describe('Log In and Log Out Production, test-cases #1, 2', async () => {
     try {
       const loginPageTest = new LoginPage(driverChrome, config.urlLoginPage);
       const logOutUserTest = new LogOut(driverChrome);
-      await loginPageTest.openLoginForm();
-      await loginPageTest.fillEmailInput(config.email);
-      await loginPageTest.fillPasswordInput(config.password);
-      await loginPageTest.checkSaveForFuture();
-      await loginPageTest.login(config.urlHomePageForCheck);
+
+      await loginPageTest.userLogIn(
+        config.email,
+        config.password,
+        config.urlHomePageForCheck
+      );
+      
       await logOutUserTest.findUserMenu();
       await logOutUserTest.userLogOut(config.urlLoginPage);
       console.log('test passed');

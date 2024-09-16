@@ -8,21 +8,6 @@ const config = require('../src/utils/config');
 
 describe('Check open form for User create', async () => {
   // add varibalses for testing
-  const URL = 'https://app.colorjob.com/login';
-  const urlForCheck =
-    'https://app.colorjob.com/system/dashboard';
-  // const URL = 'http://localhost:4300/login';
-  // const urlForCheck = "http://localhost:4300/system/dashboard"
-  const email = 'superadmin@gmail.com';
-  const password = 'colorjob';
-
-  const emailCA = 'volodymyr_o@terenbro.com';
-  const passwordCA ='222222';
-
-  const emailPM = 'olevova1983@gmail.com';
-  const passwordPM ='222222';
-
-  const userTitle = "Invite new user";
   let driverChrome = null;
 
   beforeEach(async () => {
@@ -39,12 +24,11 @@ describe('Check open form for User create', async () => {
     try {
       const loginPageTest = new LoginPage(driverChrome, config.urlLoginPage);
       const openUserForm = new InviteUser(driverChrome);
-
-      await loginPageTest.openLoginForm();
-      await loginPageTest.fillEmailInput(config.email);
-      await loginPageTest.fillPasswordInput(config.password);
-      await loginPageTest.checkSaveForFuture();
-      await loginPageTest.login(config.urlHomePageForCheck);
+      await loginPageTest.userLogIn(
+        config.email,
+        config.password,
+        config.urlHomePageForCheck
+      );
       await openUserForm.goToInviteUsersForm();
       await openUserForm.checkCreateUserFormOpen(config.userFormTitle);
     } catch (error) {
@@ -61,11 +45,10 @@ describe('Check open form for User create', async () => {
       const loginPageTest = new LoginPage(driverChrome, config.urlLoginPage);
       const openUserForm = new InviteUser(driverChrome);
 
-      await loginPageTest.openLoginForm();
-      await loginPageTest.fillEmailInput(config.emailCA);
-      await loginPageTest.fillPasswordInput(config.passwordCA);
-      await loginPageTest.checkSaveForFuture();
-      await loginPageTest.loginWithoutCheckingURL();
+      await loginPageTest.userLogIn(
+        config.emailCA,
+        config.passwordCA,
+      );
       await openUserForm.goToInviteUsersForm('ca');
       await openUserForm.checkCreateUserFormOpen(config.userFormTitle);
     } catch (error) {
@@ -81,12 +64,11 @@ describe('Check open form for User create', async () => {
     try {
       const loginPageTest = new LoginPage(driverChrome, config.urlLoginPage);
       const openUserForm = new InviteUser(driverChrome);
-
-      await loginPageTest.openLoginForm();
-      await loginPageTest.fillEmailInput(config.emailPM);
-      await loginPageTest.fillPasswordInput(config.passwordPM);
-      await loginPageTest.checkSaveForFuture();
-      await loginPageTest.loginWithoutCheckingURL();
+      await loginPageTest.userLogIn(
+        config.emailPM,
+        config.passwordPM,
+      );
+      
       await openUserForm.goToInviteUsersForm('pm');
       await openUserForm.checkCreateUserFormOpen(config.userFormTitle);
     } catch (error) {

@@ -7,10 +7,7 @@ const config = require('../src/utils/config');
 
 describe('Check forgot password page, test-case # 3 in the SU', async () => {
   let driverChrome = null;
-  const comperaUrl =
-    'https://app.colorjob.com/forgot-password';
-  const startPage = 'https://app.colorjob.com/login';
-  const formName = 'Forgot Password'
+  
   // const comperaUrl = 'http://localhost:4200/login';
 
   beforeEach(async () => {

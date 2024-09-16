@@ -23,12 +23,11 @@ describe('Check open form for Company create', async () => {
     try {
       const loginPageTest = new LoginPage(driverChrome, config.urlLoginPage);
       const openCompanyForm = new CreateCompany(driverChrome);
-
-      await loginPageTest.openLoginForm();
-      await loginPageTest.fillEmailInput(config.email);
-      await loginPageTest.fillPasswordInput(config.password);
-      await loginPageTest.checkSaveForFuture();
-      await loginPageTest.login(config.urlHomePageForCheck);
+      await loginPageTest.userLogIn(
+        config.email,
+        config.password,
+        config.urlHomePageForCheck
+      );
       await openCompanyForm.goToCreateCompanyForm();
       await openCompanyForm.checkCreateCompanyFormOpen(config.companyFormTitle);
     } catch (error) {
