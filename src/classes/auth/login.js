@@ -90,7 +90,7 @@ class LoginPage extends Base{
 
     if (isEnabled) {
       await enterButton.click();
-      // await this.driver.wait(until.urlMatches(/^https:\/\/app\.colorjob\.com/), 10000);
+      await this.driver.wait(until.urlMatches(/^https:\/\/app\.colorjob\.com/), 10000);
     } else {
       const errorElement = await this.driver.findElement(
         By.className('error-message')
@@ -106,7 +106,7 @@ class LoginPage extends Base{
   async userLogIn(email, password, urlForCheck){
     try {
     await this.openLoginForm();
-    await this.driver.sleep(1000);
+    await this.driver.sleep(500);
     await this.fillEmailInput(email);
     await this.fillPasswordInput(password);
     await this.checkSaveForFuture();
