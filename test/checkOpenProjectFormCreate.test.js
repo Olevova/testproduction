@@ -17,7 +17,7 @@ describe('Check open form for Project create', async () => {
     await driverChrome.quit();
   });
 
-  it('Check open Project form for the SU', async () => {
+  it('Check open Project form for the SA', async () => {
     // time and site or lochalhost there tests are going
     console.log(Date().toLocaleLowerCase(), 'date', config.urlLoginPage);
     try {
@@ -28,16 +28,18 @@ describe('Check open form for Project create', async () => {
         config.password,
         config.urlHomePageForCheck
       );
-      await openProjectForm.goToCreateProjectForm();
+      
+      // await openProjectForm.goToProjectsPageFromDashboard();
+      await openProjectForm.goToCreateProjectForm(config.superAdmin, 'Terenbro USA');
       await openProjectForm.checkCreateProjectFormOpen(config.projectFormTitle);
     } catch (error) {
       // if something wrong make screen in utils/screenshot
-      makeScreenshot(driverChrome, 'user_menu_test');
+      makeScreenshot(driverChrome, 'open_project_create_SA');
       throw error;
     }
   });
 
-  it('Check open Project form for the CA', async () => {
+  it('Check open Project form for the Admin', async () => {
     // time and site or lochalhost there tests are going
     console.log(Date().toLocaleLowerCase(), 'date', config.urlLoginPage);
     try {
@@ -46,12 +48,14 @@ describe('Check open form for Project create', async () => {
       await loginPageTest.userLogIn(
         config.emailCA,
         config.passwordCA,
+        false
       );
-      await openProjectForm.goToCreateProjectForm("ca");
+      // await openProjectForm.goToProjectsPageFromDashboard();
+      await openProjectForm.goToCreateProjectForm('ca');
       await openProjectForm.checkCreateProjectFormOpen(config.projectFormTitle);
     } catch (error) {
       // if something wrong make screen in utils/screenshot
-      makeScreenshot(driverChrome, 'user_menu_test');
+      makeScreenshot(driverChrome, 'open_project_create_Admin');
       throw error;
     }
   });

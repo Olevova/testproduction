@@ -32,7 +32,7 @@ describe('Check open form for Company create', async () => {
       await openCompanyForm.checkCreateCompanyFormOpen(config.companyFormTitle);
     } catch (error) {
       // if something wrong make screen in utils/screenshot
-      makeScreenshot(driverChrome, 'user_menu_test');
+      makeScreenshot(driverChrome, 'open_company_menu_test');
       throw error;
     }
   });

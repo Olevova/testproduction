@@ -1,5 +1,6 @@
 const { By, until } = require('selenium-webdriver');
 const Base = require('../base');
+const config = require('../../utils/config');
 
 class CreateProject extends Base {
   constructor(driver) {
@@ -10,21 +11,26 @@ class CreateProject extends Base {
     this.endProjectsNumber = 0;
   }
 
-  async goToCreateProjectForm(user='sa') {
-    if(user === 'sa'){
-      const projectBtnSa = await this.driver.findElement(By.id('linkProjects'));
-      await projectBtnSa.click();
-    }
-      
-    if(user !== 'sa'){
-      await this.driver.sleep(1000);
-      const projectBtnUsers = await this.driver.findElement(By.id('linkProjectsAdminOrEmployee'));
-      await projectBtnUsers.click();
-    }
-    const creatProject = await this.driver.findElement(By.id('btnCreate'));
-    await creatProject.click();
+  async goToProjectsPageFromDashboard(){
+    const dashboardBtn = await this.driver.findElement(By.id('linkDashboard'));
+    await this.driver.wait(until.elementIsEnabled(dashboardBtn),10000);
+    await dashboardBtn.click();
+    await this.waitListDate('.table-link',2);
+    await this.findAndClickOnLinInTheList( 'See All Projects','.table-link');
     
-  }
+    const projectList = await this.driver.wait(
+      until.elementsLocated(By.css('li.table-projects__row')),
+      10000
+    ).catch(()=>null);
+    if(projectList === null){
+      throw new Error ('Has no projects in the project list')
+    };
+    const firstProject = await this.driver.findElements(
+      By.css('li.table-projects__row')
+    );
+    await this.driver.wait(until.elementIsEnabled(firstProject[0]));
+}
+
 
   async checkCreateProjectFormOpen(titleForCheck){
     this.projectName = await this.getFormTitle();
@@ -36,7 +42,34 @@ class CreateProject extends Base {
   }
 }
 
-
+async goToCreateProjectForm(user = false, company){
+  if (user === config.superAdmin) {
+    await this.goToProjectsPageViaCompany(company);
+    // this.startProjectsNumber = await this.numberOfItems();
+  }
+  if (user !== config.superAdmin) {
+    await this.driver.wait(
+      until.elementLocated( By.id('linkProjectsAdminOrEmployee')),
+      10000
+    );
+    const projects = await this.driver.findElement(
+      By.id('linkProjectsAdminOrEmployee')
+    );
+    await this.driver.wait(until.elementIsEnabled(projects), 10000);
+    await projects.click();
+    await this.driver.sleep(500);
+  }
+  await this.driver.wait(
+    until.elementLocated(By.id('btnCreate')),
+    10000
+  );
+  await this.driver.sleep(500);
+  const creatProject = await this.driver.findElement(
+    By.id('btnCreate')
+  );
+  await creatProject.click();
+  await this.driver.sleep(500);
+}
   async fillCreateProjectFields(
     name,
     key,

@@ -39,12 +39,12 @@ describe('Check user Name in the User Menu', async () => {
       await loginPageTest.checkUserNameinUserForm(userSA)
     } catch (error) {
       // if something wrong make screen in utils/screenshot
-      makeScreenshot(driverChrome, 'user_menu_test_SU');
+      makeScreenshot(driverChrome, 'check_user_name_SA');
       throw error;
     }
   });
 
-  it('Check user name of the CA', async () => {
+  it('Check user name of the Admin', async () => {
     // time and site or lochalhost there tests are going
     console.log(Date().toLocaleLowerCase(), 'date', config.urlLoginPage);
     try {
@@ -56,12 +56,12 @@ describe('Check user Name in the User Menu', async () => {
       await loginPageTest.checkUserNameinUserForm(userCA)
     } catch (error) {
       // if something wrong make screen in utils/screenshot
-      makeScreenshot(driverChrome, 'user_menu_test_CA');
+      makeScreenshot(driverChrome, 'check_user_name_of_the_Admin');
       throw error;
     }
   });
 
-  it('Check user name of the PM', async () => {
+  it('Check user name of the Manager', async () => {
     // time and site or lochalhost there tests are going
     console.log(Date().toLocaleLowerCase(), 'date', config.urlLoginPage);
     try {
@@ -73,12 +73,12 @@ describe('Check user Name in the User Menu', async () => {
       await loginPageTest.checkUserNameinUserForm(userPM)
     } catch (error) {
       // if something wrong make screen in utils/screenshot
-      makeScreenshot(driverChrome, 'user_menu_test_PM');
+      makeScreenshot(driverChrome, 'check_user_name_of_the_Manager');
       throw error;
     }
   });
 
-  it('Check user name of the SU', async () => {
+  it('Check user name of the Member', async () => {
     // time and site or lochalhost there tests are going
     console.log(Date().toLocaleLowerCase(), 'date', config.urlLoginPage);
     try {
@@ -91,7 +91,7 @@ describe('Check user Name in the User Menu', async () => {
       await loginPageTest.checkUserNameinUserForm(userSU)
     } catch (error) {
       // if something wrong make screen in utils/screenshot
-      makeScreenshot(driverChrome, 'user_menu_test_SU');
+      makeScreenshot(driverChrome, 'check_user_name_of_the_Member');
       throw error;
     }
   });
