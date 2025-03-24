@@ -1,3 +1,4 @@
+require('dotenv').config();
 module.exports = {
     // URLs for Auto tests
     urlLoginPage: 'https://app.colorjob.com/login',
@@ -9,8 +10,10 @@ module.exports = {
     // urlForgotPassword: 'https://dev-frontend.colorjob.terenbro.com/forgot-password',
 
     // SA,CA,PM,SU credentials
-    email: 'superadmin@gmail.com',
-    password: 'colorjob',
+    // email: 'superadmin@gmail.com',
+    // password: 'colorjob',
+    email: process.env.EMAIL,
+    password: process.env.PASSWORD,
     emailCA:'volodymyr_o@terenbro.com',
     passwordCA:'222222',
     emailPM:'olevova1983@gmail.com',
